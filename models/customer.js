@@ -2,6 +2,8 @@
 const {
   Model
 } = require('sequelize');
+const bcrypt = require("bcryptjs");
+const HASH_ROUND = 12;
 module.exports = (sequelize, DataTypes) => {
   class customer extends Model {
     /**
@@ -26,7 +28,7 @@ module.exports = (sequelize, DataTypes) => {
         },
       },
       nik: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.STRING,
         validate: {
           notEmpty: {
             message: "Field nik can't be empty.",
@@ -41,7 +43,7 @@ module.exports = (sequelize, DataTypes) => {
           },
         },
       },
-      passwotd: {
+      password: {
         type: DataTypes.STRING,
         validate: {
           notEmpty: {
@@ -63,5 +65,11 @@ module.exports = (sequelize, DataTypes) => {
       modelName: "customer",
     }
   );
+
+  customer.beforeCreate(async (customer, options) => {
+    const hashedPassword = bcrypt.hashSync(customer.password, HASH_ROUND);
+    customer.password = hashedPassword;
+  });
+
   return customer;
 };

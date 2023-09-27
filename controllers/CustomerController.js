@@ -1,10 +1,34 @@
-const { customer } = require("../models");
+const { customer, room, booking } = require("../models");
 
 class CustomerController {
   static async getCustomers(req, res) {
     try {
-      let customers = await customer.findAll();
-      res.json(customers);
+      let resultCustomer = await customer.findAll({
+        order: [["id", "asc"]],
+        include: {
+          model: booking,
+          include: [room],
+        },
+      });
+      res.render("../views/customer/customerPage.ejs", { customers: resultCustomer });
+      // res.json(resultCustomer);
+    } catch (err) {
+      res.json(err);
+    }
+  }
+  
+  static async getDetailCustomer(req, res) {
+    try {
+      const id = +req.params.customerId;
+      let resultCustomer = await customer.findByPk(id, {
+        order: [["id", "asc"]],
+        include: {
+          model: booking,
+          include: [room],
+        },
+      });
+      // res.render("customerPage.ejs", { customers: resultCustomer });
+      res.json(resultCustomer);
     } catch (err) {
       res.json(err);
     }
@@ -17,7 +41,7 @@ class CustomerController {
         name,
         nik,
         email,
-        address
+        address,
       });
       res.json(resultCustomer);
       // res.redirect("/customers");

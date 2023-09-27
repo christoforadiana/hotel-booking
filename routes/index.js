@@ -2,10 +2,14 @@ const express = require("express");
 const route = express.Router();
 
 route.get("/", (req, res) => {
-  res.json({
-    message: "Hotel Booking",
-  });
-//   res.render("index.ejs");
+  // res.json({
+  //   message: "Hotel Booking",
+  // });
+  res.render("index.ejs");
+});
+
+route.get("/about", (req, res) => {
+  res.render("about.ejs");
 });
 
 const bookingRoutes = require("./booking");

@@ -3,8 +3,9 @@ const { room } = require("../models");
 class RoomController {
   static async getRooms(req, res) {
     try {
-      let rooms = await room.findAll();
-      res.json(rooms);
+      let resultRoom = await room.findAll();
+      res.render("../views/room/roomPage.ejs", { rooms: resultRoom });
+      // res.json(resultRoom);
     } catch (err) {
       res.json(err);
     }

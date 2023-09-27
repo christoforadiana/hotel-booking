@@ -19,7 +19,7 @@ module.exports = {
       },
       price: {
         allowNull: false,
-        type: Sequelize.INTEGER,
+        type: Sequelize.BIGINT,
       },
       roomId: {
         type: Sequelize.INTEGER,

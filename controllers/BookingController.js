@@ -3,8 +3,9 @@ const { booking } = require("../models");
 class BookingController {
   static async getBookings(req, res) {
     try {
-      let bookings = await booking.findAll();
-      res.json(bookings);
+      let resultBooking = await booking.findAll();
+      res.render("../views/booking/bookingPage.ejs", { bookings: resultBooking });
+      // res.json(resultBooking);
     } catch (err) {
       res.json(err);
     }
