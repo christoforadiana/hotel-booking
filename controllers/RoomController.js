@@ -3,7 +3,9 @@ const { room, booking, customer } = require("../models");
 class RoomController {
   static async getRooms(req, res) {
     try {
-      let resultRoom = await room.findAll();
+      let resultRoom = await room.findAll({
+        order: [["id", "asc"]],
+      });
       res.render("../views/room/roomPage.ejs", { rooms: resultRoom });
       // res.json(resultRoom);
     } catch (err) {

@@ -4,6 +4,7 @@ class BookingController {
   static async getBookings(req, res) {
     try {
       let resultBooking = await booking.findAll({
+        order: [["id", "asc"]],
         include: [customer, room],
       });
       res.render("../views/booking/bookingPage.ejs", {
