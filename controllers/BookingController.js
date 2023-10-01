@@ -94,8 +94,8 @@ class BookingController {
     let resultBooking = await booking.findAll({
       where: { id },
     });
-    let resultCustomer = await customer.findAll({ where: { id } });
-    let resultRoom = await room.findAll({ where: { id } });
+    let resultCustomer = await customer.findAll();
+    let resultRoom = await room.findAll();
     res.render("../views/booking/updateBookingPage.ejs", {
       booking: resultBooking[0],
       customers: resultCustomer,
