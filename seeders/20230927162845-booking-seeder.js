@@ -19,7 +19,7 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
-          roomId: 1,
+          roomId: 3,
           customerId: 3,
           createdAt: new Date(),
           updatedAt: new Date(),

@@ -1,0 +1,371 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Hotel Booking API",
+    "description": "Welcome to the HotelBooking developers portal. Here you can find all the information you need to make full use of our API. There are 3 main features: Customers, Rooms, Bookings.",
+    "version": "1.0.0",
+    "contact": {
+      "name": "Christofora Diana Yuliawati",
+      "email": "christoforadiana@gmail.com"
+    }
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000/",
+      "description": "localhost"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Customers",
+      "description": "Customers CRUD API"
+    },
+    {
+      "name": "Rooms",
+      "description": "Rooms CRUD API"
+    },
+    {
+      "name": "Bookings",
+      "description": "Bookings CRUD API"
+    }
+  ],
+  "paths": {
+    "/customers": {
+      "get": {
+        "tags": ["Customers"],
+        "summary": "Get Data Customers",
+        "description": "Get Data from All Customers",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/customers/detail/{id}": {
+      "get": {
+        "tags": ["Customers"],
+        "summary": "Get Detail Customer",
+        "description": "Get Detail Data from Customer",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "customer id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/customers/add": {
+      "post": {
+        "tags": ["Customers"],
+        "summary": "Add Data Customer",
+        "description": "",
+        "requestBody": {
+          "description": "Add data customer required name, nik, email, password, address.",
+          "required": true,
+          "content": {
+            "application/json": {
+              "example": {
+                "name": "Christofora Diana Yuliawati",
+                "nik": "1872226407050200",
+                "email": "dianajr@gmail.com",
+                "password": "12345678",
+                "address": "Gandaria City"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/customers/delete/{id}": {
+      "get": {
+        "tags": ["Customers"],
+        "summary": "Delete Data Customer",
+        "description": "Delete data customer required id in URL path.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "customer id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/customers/update/{id}": {
+      "post": {
+        "tags": ["Customers"],
+        "summary": "Update Data Customer",
+        "description": "Update data customer required id in URL path.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "customer id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Update data customer required name, nik, email, password, and city.",
+          "required": true,
+          "content": {
+            "application/json": {
+              "example": {
+                "name": "Jhonny Depp",
+                "nik": "1872226407050211",
+                "email": "jhnjr@gmail.com",
+                "password": "12345678",
+                "address": "Koala City"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/rooms": {
+      "get": {
+        "tags": ["Rooms"],
+        "summary": "Get Data Rooms",
+        "description": "Get Data from All Rooms",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/rooms/add": {
+      "post": {
+        "tags": ["Rooms"],
+        "summary": "Add Data Room",
+        "description": "",
+        "requestBody": {
+          "description": "Add data room required name, image(url), and price.",
+          "required": true,
+          "content": {
+            "application/json": {
+              "example": {
+                "name": "Suite",
+                "image": "hhtps://via.placeholder.com/150",
+                "price": 1000000
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/rooms/delete/{id}": {
+      "get": {
+        "tags": ["Rooms"],
+        "summary": "Delete Data Room",
+        "description": "Delete data room required id in URL path.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "room id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/rooms/update/{id}": {
+      "post": {
+        "tags": ["Rooms"],
+        "summary": "Update Data Room",
+        "description": "Update data room required id in URL path.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "room id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Update data room required name, image(url), and price.",
+          "required": true,
+          "content": {
+            "application/json": {
+              "example": {
+                "name": "President Suite",
+                "image": "hhtps://via.placeholder.com/150",
+                "price": 10000000
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/bookings": {
+      "get": {
+        "tags": ["Bookings"],
+        "summary": "Get Data Bookings",
+        "description": "Get Data from All Bookings",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/bookings/detail/{id}": {
+      "get": {
+        "tags": ["Bookings"],
+        "summary": "Get Detail Booking",
+        "description": "Get Detail Data from Booking",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "booking id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/bookings/add": {
+      "post": {
+        "tags": ["Bookings"],
+        "summary": "Add Data Booking",
+        "description": "",
+        "requestBody": {
+          "description": "Add data booking required roomId and customerId.",
+          "required": true,
+          "content": {
+            "application/json": {
+              "example": {
+                "roomId": 1,
+                "customerId": 2
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/bookings/delete/{id}": {
+      "get": {
+        "tags": ["Bookings"],
+        "summary": "Delete Data Booking",
+        "description": "Delete data booking required id in URL path.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "booking id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/bookings/update/{id}": {
+      "post": {
+        "tags": ["Bookings"],
+        "summary": "Update Data Booking",
+        "description": "Update data job required id in URL path.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "booking id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Update data job required roomId and customerId.",
+          "required": true,
+          "content": {
+            "application/json": {
+              "example": {
+                "roomId": 1,
+                "customerId": 3
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  },
+  "apis": ["./routes/*.js"]
+}

@@ -17,8 +17,8 @@
             <thead>
                 <tr>
                 <th>ID</th>
-                <th>Room Name</th>
-                <th>Customer Name</th>
+                <th>Room</th>
+                <th>Customer</th>
                 <th>Price</th>
                 <th>Actions</th>
                 </tr>
@@ -29,10 +29,10 @@
                         <td><%= booking.id %></td>
                         <td>
                             <div class="row">
-                                <div class="col-2">
+                                <div class="col-6">
                                     <img class="img-fluid rounded-circle" src="<%= booking.room.image %>" alt="" srcset="">
                                 </div>
-                                <div class="col-10">
+                                <div class="col-6">
                                     <h6><%= booking.room.name %></h6>
                                 </div>
                             </div>
