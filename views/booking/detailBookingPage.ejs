@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include("../layouts/header")%>
+  <body>
+    <%- include("../layouts/navbar")%>
+    <div class="container my-3">
+      <div class="row text-center">
+        <h5>Detail Booking</h5>
+      </div>
+      <div class="row">
+        <div class="my-3 row">
+            <div class="row">
+                <label class="col-sm-2 col-form-label">Booking ID</label>
+                <div class="col-sm-10">
+                <input type="text" readonly class="form-control-plaintext" value=": <%=booking.id%>">
+                </div>
+            </div>
+            <div class="row">
+                <label class="col-sm-2 col-form-label">Customer</label>
+                <div class="col-sm-10">
+                <input type="text" readonly class="form-control-plaintext" value=": <%=booking.customer.name%>">
+                </div>
+            </div>
+            <div class="row">
+                <label class="col-sm-2 col-form-label">Room</label>
+                <div class="col-sm-10">
+                <input type="text" readonly class="form-control-plaintext" value=": <%=booking.room.name%>">
+                </div>
+            </div>
+            <div class="row">
+                <label class="col-sm-2 col-form-label">Price</label>
+                <div class="col-sm-10">
+                <input type="text" readonly class="form-control-plaintext" value=": Rp. <%=booking.room.price%>">
+                </div>
+            </div>
+            <div class="row">
+                <label class="col-sm-2 col-form-label">Booked at</label>
+                <div class="col-sm-10">
+                <input type="text" readonly class="form-control-plaintext" value=": <%=booking.createdAt%>">
+                </div>
+            </div>
+            <div class="row">
+                <label class="col-sm-2 col-form-label">Updated at</label>
+                <div class="col-sm-10">
+                <input type="text" readonly class="form-control-plaintext" value=": <%=booking.updatedAt%>">
+                </div>
+            </div>
+        </div>
+      </div>
+      <div class="row text-center my-2">
+      </div>
+    </div>
+  <%- include("../layouts/footer")%>
+  <%- include("../layouts/script")%>
+  </body>
+</html>

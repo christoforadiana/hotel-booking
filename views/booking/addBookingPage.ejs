@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include("../layouts/header")%>
+  <body>
+    <%- include("../layouts/navbar")%>
+    <div class="container my-3">
+      <div class="row text-center">
+        <h5>Add Bookings Page</h5>
+      </div>
+      <div class="row">
+        <div class="col-12 my-2">
+            <form action="/bookings/add" method="post">
+                <div class="form-group mb-3">
+                    <label for="roomId">Please Select Room</label>
+                    <select class="form-select" aria-label="Default select example" name="roomId">
+                      <% rooms.forEach(room => { %>
+                        <option value="<%=room.id%>"><%=room.name%></option>
+                      <% })%>
+                    </select>
+                </div>
+                <div class="form-group mb-3 my-3">
+                  <label for="customerId">Please Select Customer</label>
+                  <select class="form-select" aria-label="Default select example" name="customerId">
+                    <% customers.forEach(customer => { %>
+                      <option value="<%=customer.id%>"><%=customer.name%></option>
+                    <% })%>
+                  </select>
+                </div>
+                <div class="text-end my-3">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </form>
+        </div>
+      </div>
+    </div>
+  <%- include("../layouts/footer")%>
+  <%- include("../layouts/script")%>
+  </body>
+</html>

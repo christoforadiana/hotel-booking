@@ -13,8 +13,11 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      customer.hasMany(models.booking)
-      customer.belongsToMany(models.room, { through: models.booking, foreignKey: "customerId" });
+      customer.hasMany(models.booking);
+      customer.belongsToMany(models.room, {
+        through: models.booking,
+        foreignKey: "customerId",
+      });
     }
   }
   customer.init(
@@ -66,6 +69,7 @@ module.exports = (sequelize, DataTypes) => {
     }
   );
 
+  // Method hooks via the direct method
   customer.beforeCreate(async (customer, options) => {
     const hashedPassword = bcrypt.hashSync(customer.password, HASH_ROUND);
     customer.password = hashedPassword;

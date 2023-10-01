@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include("../layouts/header")%>
+  <body>
+    <%- include("../layouts/navbar")%>
+    <div class="container my-3">
+      <div class="row text-center">
+        <h5>Update Customers Page</h5>
+      </div>
+      <div class="row">
+        <div class="col-12 my-2">
+            <form action="<%= customer.id %>" method="post">
+                <div class="form-group mb-3">
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control" id="name" name="name" value="<%=customer.name%>">
+                </div>
+                <div class="form-group mb-3">
+                    <label for="nik">NIK</label>
+                    <input type="text" class="form-control" id="nik" name="nik" value="<%=customer.nik%>">
+                </div>
+                <div class="form-group mb-3">
+                    <label for="email">Email</label>
+                    <input type="text" class="form-control" id="email" name="email" value="<%=customer.email%>">
+                </div>
+                <div class="form-group mb-3">
+                    <label for="password">Password</label>
+                    <input type="text" class="form-control" id="password" name="password" value="<%=customer.password%>">
+                </div>
+                <div class="form-group mb-3">
+                    <label for="address">Address</label>
+                    <input type="text" class="form-control" id="address" name="address" value="<%=customer.address%>">
+                </div>
+                <div class="text-end">
+                    <button type="submit" class="btn btn-success">Save</button>
+                </div>
+            </form>
+        </div>
+      </div>
+    </div>
+  <%- include("../layouts/footer")%>
+  <%- include("../layouts/script")%>
+  </body>
+</html>

@@ -15,37 +15,27 @@ module.exports = (sequelize, DataTypes) => {
   }
   booking.init(
     {
-      id: { 
-        autoIncrement: true, 
+      id: {
+        autoIncrement: true,
         primaryKey: true,
-        type: DataTypes.INTEGER, 
+        type: DataTypes.INTEGER,
       },
-      name: {
-        type: DataTypes.STRING,
-        validate: {
-          notEmpty: {
-            message: "Field name can't be empty.",
-          },
-        },
-      },
-      image: {
-        type: DataTypes.STRING,
-        validate: {
-          notEmpty: {
-            message: "Field image can't be empty.",
-          },
-        },
-      },
-      price: {
+      roomId: {
         type: DataTypes.INTEGER,
         validate: {
           notEmpty: {
-            message: "Field price can't be empty.",
+            message: "Field roomId can't be empty.",
           },
         },
       },
-      roomId: DataTypes.INTEGER,
-      customerId: DataTypes.INTEGER,
+      customerId: {
+        type: DataTypes.INTEGER,
+        validate: {
+          notEmpty: {
+            message: "Field customerId can't be empty.",
+          },
+        },
+      },
     },
     {
       sequelize,

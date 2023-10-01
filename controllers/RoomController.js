@@ -1,4 +1,4 @@
-const { room } = require("../models");
+const { room, booking, customer } = require("../models");
 
 class RoomController {
   static async getRooms(req, res) {
@@ -26,6 +26,10 @@ class RoomController {
     }
   }
 
+  static async addRoomPage(req, res) {
+    res.render("../views/room/addRoomPage.ejs");
+  }
+
   static async deleteRoom(req, res) {
     try {
       const id = +req.params.roomId;
@@ -48,13 +52,21 @@ class RoomController {
         { name, image, price },
         { where: { id } }
       );
-      // res.redirect("/rooms");
-      resultBrand[0] === 1
-        ? res.json({ message: `Room with id ${id} updated successfully!` })
-        : res.json({ message: `Couldn't update room with id ${id}.` });
+      res.redirect("/rooms");
+      // resultBrand[0] === 1
+      //   ? res.json({ message: `Room with id ${id} updated successfully!` })
+      //   : res.json({ message: `Couldn't update room with id ${id}.` });
     } catch (err) {
       res.json(err);
     }
+  }
+
+  static async updateRoomPage(req, res) {
+    const id = +req.params.roomId;
+    let resultRoom = await room.findAll({
+      where: { id },
+    });
+    res.render("../views/room/updateRoomPage.ejs", {room: resultRoom[0]});
   }
 }
 

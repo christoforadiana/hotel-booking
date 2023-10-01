@@ -9,20 +9,10 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      name: {
-        allowNull: false,
-        type: Sequelize.STRING,
-      },
-      image: {
-        allowNull: false,
-        type: Sequelize.STRING,
-      },
-      price: {
-        allowNull: false,
-        type: Sequelize.BIGINT,
-      },
       roomId: {
+        allowNull: false,
         type: Sequelize.INTEGER,
+        onDelete: "CASCADE",
         references: {
           model: {
             tableName: "rooms",
@@ -32,7 +22,9 @@ module.exports = {
         },
       },
       customerId: {
+        allowNull: false,
         type: Sequelize.INTEGER,
+        onDelete: "CASCADE",
         references: {
           model: {
             tableName: "customers",
