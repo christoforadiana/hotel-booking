@@ -4,3 +4,6 @@ In this project, a hotel booking application is created using several technology
 
 ## ERD
 ![hotel-booking](https://github.com/christoforadiana/hotel-booking/assets/62495955/bc50bedf-76aa-4c11-afb1-0a230eb31dda)
+
+## API Documentation
+API documentation using Swagger: ```apidocs.json```
